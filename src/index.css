@@ -1,0 +1,214 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+    
+    /* Theme colors for cleaner and user */
+    --cleaner-theme: #F4A1A7;
+    --user-theme: #7EC69C;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+  
+  /* Theme classes */
+  .cleaner-theme {
+    --theme-color: var(--cleaner-theme);
+  }
+  
+  .user-theme {
+    --theme-color: var(--user-theme);
+  }
+}
+
+@layer utilities {
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Theme utility classes */
+  .bg-theme {
+    background-color: var(--theme-color, #00C8B0);
+  }
+  
+  .text-theme {
+    color: var(--theme-color, #00C8B0);
+  }
+  
+  .border-theme {
+    border-color: var(--theme-color, #00C8B0);
+  }
+}
+
+/* Notification banner specific styles */
+.notification-banner {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-width: 95%;
+  width: 450px;
+}
+
+.notification-icon {
+  min-width: 48px;
+  height: 48px;
+}
+
+/* Custom styles for Sonner notification toasts */
+.notification-toast {
+  background-color: white !important;
+  color: #333 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  border: 1px solid #f0f0f0 !important;
+  border-radius: 12px !important;
+  padding: 12px !important;
+  max-width: 95% !important;
+  width: 380px !important;
+  margin: 0 auto !important;
+}
+
+.notification-toast [data-sonner-toast-content] > div {
+  width: 100%;
+}
+
+.notification-toast [data-sonner-toast][data-styled="true"] {
+  padding: 12px !important;
+}
+
+.notification-toast [data-sonner-toast-close-button] {
+  color: #999 !important;
+}
+
+.notification-toast [data-sonner-toast-close-button]:hover {
+  background-color: #f5f5f5 !important;
+}
+
+/* Remove the fixed positioning for Sonner toast container - will be handled by the context */
+[data-sonner-toaster][data-position="top-right"],
+[data-sonner-toaster][data-position="top-left"],
+[data-sonner-toaster][data-position="top-center"] {
+  top: var(--notification-offset, 4rem) !important;
+}
+
+[data-sonner-toaster][data-position="bottom-right"],
+[data-sonner-toaster][data-position="bottom-left"],
+[data-sonner-toaster][data-position="bottom-center"] {
+  bottom: var(--notification-offset, 1rem) !important;
+}
+
+/* Radix toast viewport positioning - handled by inline styles in our component now */
+.ToastViewport {
+  position: fixed;
+  z-index: 100;
+  margin: 0;
+  list-style: none;
+  /* width: 390px; */
+  max-width: 100vw;
+  padding: 0 16px;
+}
